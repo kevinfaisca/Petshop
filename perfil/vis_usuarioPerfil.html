@@ -1,0 +1,243 @@
+<style>
+    .dropdown-menu {
+        left: initial !important;
+        width: auto;
+    }
+
+    labal {
+        position: inherit !important;
+        color: inherit !important;
+        font-size: inherit !important;
+    }
+
+    .ul_menuDropdownHeader {
+        display: none;
+    }
+
+    input#chk_abreMenuDropdown:checked+ul.ul_menuDropdownHeader {
+        display: block;
+        position: absolute;
+        background-color: #005f85;
+        z-index: 1000;
+        list-style: none;
+        padding: 0;
+        top: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 5px 10px 0px #606060
+    }
+
+    ul.ul_menuDropdownHeader li {
+        color: white;
+        padding: 5px;
+        transition: 0.3s;
+    }
+
+    ul.ul_menuDropdownHeader li:hover {
+        background-color: white;
+        color: initial;
+    }
+
+    ul.ul_menuDropdownHeader a {
+        text-decoration: none;
+        color: initial;
+    }
+
+    .span_opcoesMenu {
+        font-size: 14px;
+        color: initial;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="PT-BR">
+<header>
+    <div class="row no-gutters m-0" style="background-color: #005f85">
+        <div class="menu_topo col-md-10 offset-md-1 col-12">
+            <nav class="navbar navbar-expand-lg d-flex justify-content-end" id="navbar_logo">
+                <a href="../index.html" class="navbar-brand navbar-nav mr-auto">
+                    <img src="../imagens/pngs/logo.png" id="img_logoHeader" style="height: 35px; width: auto;"
+                        alt="logo_petShop" />
+                </a>
+                <div class="mt-2 mt-sm-0 mr-2" style="margin-right:45px;">
+                    <span style="color:white;">Olá</span> <span style="color: white; font-weight: 700;"></span>
+                    &nbsp;
+                    <label for="chk_abreMenuDropdown" class="m-0">
+                        <img src="../arquivos/fotoUsuario.png"
+                            style="height: 45px; width: 45px; border-radius: 100%; object-fit: cover; cursor: pointer;"
+                            alt="fotoUsuario" />
+                    </label>
+                    <input type="checkbox" name="chk_abreMenuDropdown" id="chk_abreMenuDropdown" style="display:none;"
+                        value="" />
+
+                    <ul class="ul_menuDropdownHeader">
+                        <li onclick="javascript: window.location.href = '../gerenciadorConteudo/vis_gerenciadorConteudo.html'"
+                            style="cursor:pointer;">
+                            <span class="span_opcoesMenu">Gerenciador de Conteúdo</span>
+                        </li>
+
+                        <li onclick="javascript: window.location.href = '../perfil/vis_usuarioPerfil.html'"
+                            style="cursor:pointer;">
+                            <span class="span_opcoesMenu">Perfil</span>
+                        </li>
+
+                        <li onclick="javascript: window.location.href = '../login.html?param=logoff'"
+                            style="cursor:pointer;">
+                            <span class="span_opcoesMenu">Sair</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>PetShop</title>
+    <!-- bootstrap para gerenciador de conte�do -->
+    <link rel="stylesheet" href="../include/bootstrap/css/bootstrap.css" type="text/css" />
+
+    <!--CSS-->
+    <link href="../include/css/styleCrm.css" rel="stylesheet">
+
+    <!--Jquery-->
+    <script src="../include/sbadmin/vendor/jquery/jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="../include/css/jquery-ui.css" />
+    <link rel="stylesheet" href="../include/jquery-confirm-v3.3.4/css/jquery-confirm.css" />
+
+    <!--==============================================================================-->
+    <!--Alerts personalizados-->
+    <script src="../include/jquery-confirm-v3.3.4/js/jquery-confirm.js" type="text/javascript"></script>
+
+    <!--Bootstrap MultiSelect -->
+    <script src="../include/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+
+    <!--ClipBoard (ctr c) -->
+    <script src="../include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
+
+    <!--fun�oes -->
+    <script src="../include/js/java_functions.js"></script>
+
+    <!--ICONS-->
+    <link href="../include/fontawesome/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="row no-gutters m-0">
+        <div class="col-3 mb-2 mt-3 text-center">
+            <a href="#" style="color:#858796; text-decoration:none;"
+                onclick="javascript: window.location.href = '../index.html'">
+                <i class="fas fa-home"></i>
+                <div>Home</div>
+            </a>
+        </div>
+    </div>
+
+    <form action="/" method="post" id="frm_petshop">
+        <div class="div_container">
+            <div class="row">
+                <div class="col-xs-12 removePaddingMobile">
+                    <div class="noprint heigth30">
+                        <div class="row">
+                            <div class="col-xs-12 tituloDashboard" style="color:black">Perfil</div>
+                        </div>
+
+                        <div class="heigth30"></div>
+                        <div class="row">
+                            <div class="col-xs-12 padding10 min-heigth500">
+                                <div class="heigth10"></div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-12 removePaddingMobile">
+                                        <div class="row">
+                                            <div class="col-xs-12 removePaddingMobile">
+                                                <div class="bordaCinza">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div style="width:80px; float:right;text-align:center;">
+                                                                <i class="fa-solid fa-eye fa-2x"
+                                                                    title="Visualizar Ficha" style="color:#60605d;cursor:pointer;"
+                                                                    aria-hidden="true" onclick="javascript: window.location.href = 'alt_usuario.html'">
+                                                                </i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-2 col-sm-3 col-xs-12 mb-4 ">
+                                                            <div class="row">
+                                                                <div class="col-xs-12" style="text-align:center;">
+                                                                    <img src="../arquivos/fotoUsuario.png"
+                                                                        class="padding5"
+                                                                        style="width:80px; max-height:100px !important;"
+                                                                        alt="Alternate Text" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-sm-6 col-xs-12 mb-4">
+                                                            <div class="row">
+                                                                <div class="col-xs-12">Nome: <span
+                                                                        id="span_nome"></span></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">E-mail: <span
+                                                                        id="span_email"></span></div>
+                                                            </div>
+                                                            <!-- <div class="row">
+                                                                <div class="col-xs-12">CEL: <spa id="span_cel"></spa> </div>
+                                                            </div> -->
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-3 desk2"
+                                                            style="margin-top:92px;text-align:right;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="heigth10"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
+<footer>
+    <div id="div_footer">
+        <div class="row"
+            style="background-color: #005f85;height: 110px; margin: 0; position: absolute; bottom: 0; width: 100%;">
+            <div class="col-8 offset-2" style="background-color:#005f85;">
+                <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
+                    <img src="../imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        fcn_exibirDados();
+    }
+
+    function fcn_exibirDados() {
+        const idUsuario = localStorage.getItem("idUsuario");
+
+        fetch("https://localhost:44387/api/Usuario/" + idUsuario).then(function (response) {
+            return response.json();
+        })
+            .then(function (login) {
+                document.getElementById("span_nome").innerHTML = login.Nome
+                document.getElementById("span_email").innerHTML = login.Email
+            })
+    }
+</script>

@@ -1,0 +1,536 @@
+input[type="button"][disabled] {
+    opacity: 0.5;
+}
+
+label.obgMark:after {
+    content: ' *';
+    color: red;
+}
+
+.has-error .form-control, .has-error input[type="checkbox"] {
+    border-color: #a94442;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+}
+
+.msgErro {
+    color: red;
+    display: table-footer-group;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+    fieldset legend {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: auto;
+        border: none;
+        margin-bottom: -5px;
+    }
+/* Padr�es */
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.colorVermelhoGafisa {
+    color: #7a003d;
+}
+
+label {
+    font-size: initial !important;
+}
+
+.apareceMobile {
+    display: none;
+}
+
+body {
+    font-size: initial;
+}
+
+select {
+    text-transform: uppercase;
+}
+
+option {
+    text-transform: uppercase;
+}
+
+a:hover {
+    text-decoration: none;
+    color: initial;
+}
+
+
+#container {
+    position: relative;
+}
+
+.legenda {
+    position: absolute;
+    left: 100px;
+    bottom: 50px;
+    background-color: #D7D6D7;
+    color: #000;
+    padding: 10px 20px 30px 20px;
+}
+
+.titulo_legenda {
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #000;
+    padding-top: 10px;
+}
+
+.conteudo_legenda {
+    font-size: 16px;
+    height: 1px;
+    padding-right: 30px;
+}
+
+.mais_legendas {
+    position: relative;
+    top: 42px;
+    left: 94%;
+    background-color: #d90626;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 32px;
+    color: #fff;
+}
+
+.color_roxo {
+    color: #d90626;
+}
+
+.select_menu {
+    padding-left: 0;
+}
+
+.img_sliders {
+    width: auto;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.botao_sliders:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.rangeslider {
+    position: relative;
+    width: 180px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+    .rangeslider input {
+        position: absolute;
+    }
+
+    .rangeslider span {
+        position: absolute;
+        margin-top: 30px;
+        left: 0;
+    }
+
+    .rangeslider .right {
+        position: relative;
+        float: right;
+        margin-right: 25px;
+    }
+
+.rangesliders {
+    padding-left: 8%;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("../../imagens/pngs/seta_esquerda.png")
+}
+
+.carousel-control-next-icon {
+    background-image: url("../../imagens/pngs/seta_direita.png")
+}
+
+.img_banner {
+    height: 500px;
+    object-fit: cover;
+}
+
+.img_treinamentoVinci {
+    height: 200px;
+    width: 250px;
+}
+
+.img_lancamentoVinci {
+    height: 220px;
+    width: 300px;
+}
+
+.img_associados {
+    height: 100px;
+    width: auto;
+    margin-left: 12%;
+}
+
+.img_acessos {
+    height: 50px;
+    width: auto;
+}
+
+.span_titulo_roxo {
+    color: #8E0878;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.span_titulo_vermelho {
+    color: #d90626;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.span_roxo_eventos {
+    color: #d90626;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.p_titulo_eventos {
+    color: #000;
+    text-transform: uppercase;
+    padding: 0 5px;
+}
+
+.p_conteudo_eventos {
+    font-size: 12px;
+    color: #000;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+.span_nomeAniversariante {
+    font-weight: 600;
+    color: #000;
+    font-size: 14px;
+}
+
+.span_dataAniversario {
+    font-size: 12px;
+    color: #978CBE;
+}
+
+.div_verMais {
+    text-align: right;
+    font-size: 14px;
+}
+
+.span_corretor {
+    color: #fff;
+    background-color: #B7B9BA;
+    padding: 5px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: inline-block;
+    width: 80px;
+}
+
+.span_equipe {
+    color: #fff;
+    background-color: #B7B9BA;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.legenda_corretor {
+    position: absolute;
+    color: #000;
+    background-color: #DADADA;
+    text-transform: uppercase;
+    width: 100%;
+    opacity: 0.9;
+    bottom: 0%;
+}
+
+.span_corretores {
+    font-size: clamp(12px, 1vw, 22px);
+    display: block;
+}
+
+.span_corretores2 {
+    font-size: clamp(10px, 1vw, 22px);
+    display: block;
+}
+
+.span_corretores3 {
+    font-size: clamp(0.5rem, 0.5rem, 1rem);
+    display: block;
+}
+
+.span_acessos {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #b7b9ba;
+}
+
+/* LOGIN */
+.div_fundoLogin {
+    /*background-color: #B7B9BA;*/
+    background: url(../../imagens/pngs/imagemLogin.png);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_entrar {
+    background-color: #005f85;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+    .btn_entrar:hover {
+        background-color: #c90422;
+        color: white;
+    }
+
+/* Telas do Gerenciador de conte�do */
+.span_tituloGerenciador {
+    font-size: 27px;
+    color: #d90626 !important;
+    text-transform: uppercase !important;
+}
+
+/* Demais */
+#icone_mapaEmpreendimentosTodos {
+    position: absolute;
+    right: 16.6vw;
+}
+
+.btn-corVerde {
+    background-color: #d90626;
+    color: #fff;
+}
+
+.btn_buscar {
+    background-color: #d90626;
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    width: auto;
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-size: initial;
+    border: none;
+}
+
+.btn_gravar {
+    background-color: #d90626;
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    width: auto;
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-size: initial;
+    border: none;
+}
+
+.fa_ekko_color {
+    color: #d90626;
+}
+/*mobile*/
+@media(max-width:768px) {
+    .checkbox-inline {
+        display: block;
+    }
+
+    .radio-inline, .checkbox-inline {
+        margin-left: 0 !important;
+    }
+}
+
+@media(max-width:9999px) {
+    .lancamento_vinci {
+        margin-left: -25px;
+    }
+}
+
+@media(max-width:991px) {
+    .campo_buscar {
+        margin-left: 4%;
+    }
+
+    .img_sliders {
+        margin-right: 5%;
+    }
+
+    .lancamento_vinci {
+        margin-left: 0;
+    }
+
+    .legenda {
+        left: 0;
+    }
+
+    #icone_mapaEmpreendimentosTodos {
+        position: initial;
+        right: initial;
+    }
+}
+
+@media(max-width:767px) {
+    .apareceMobile {
+        display: block;
+    }
+
+    .rangesliders {
+        padding-left: 0;
+    }
+
+    .select_menu {
+        padding-bottom: 15px;
+    }
+
+    .img_sliders {
+        padding-right: 20px;
+    }
+
+    #img_logoHeader {
+        margin-top: 0 !important;
+    }
+}
+
+@media(max-width: 1047px) {
+    .font_totalUser {
+        font-size: .6rem;
+    }
+
+    .modal-dialogCartaoVirtual {
+        width: auto;
+        margin: 153px auto;
+    }
+}
+
+@media(max-width:706) {
+    .titulo_legenda {
+        font-size: 22px;
+    }
+
+    .conteudo_legenda {
+        font-size: 14px;
+    }
+
+    .dialogCartaoVirtual {
+        width: auto;
+    }
+}
+
+@media(max-width:571px) {
+    .conteudo_legenda {
+        height: 20px;
+    }
+}
+
+@media(max-width:404px) {
+    .rangesliders {
+        padding: 10px;
+    }
+
+    .mais_legendas {
+        left: 87%;
+    }
+}
+
+
+
+/* TABELA COM CABE�ALHO FIXO */
+.table-wrapper-cf {
+    width: 100%;
+    min-height: 180px;
+    height: 400px;
+    overflow: auto;
+    flex-grow: 1;
+}
+
+    .table-wrapper-cf th {
+        position: sticky;
+        top: 0;
+    }
+
+    .table-wrapper-cf td {
+        padding: 10px;
+        border-bottom: solid 1px #000;
+        white-space: nowrap;
+    }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.table-wrapper-cf th {
+    background: white;
+    padding: 10px;
+    border-bottom: solid 1px #000;
+    white-space: nowrap;
+    z-index: 9;
+}
+
+.btn_enviar{
+    background-color: #898989;
+    color: #fff;
+    border:none;
+    height:50px;
+    width:15%;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px rgb(0,0,0, 0.3);
+    font-size: 15px;
+}
+
+.sub-titulo-form{
+    color:#1c4954;
+    font-family:Arial;
+    font-size:20px;
+    margin:0px !important
+}
+
+hr{
+    border-top: 2px solid rgba(226,235,237,0.63);
+}
+
+.container-formulario{
+    background-color:white;
+    border-radius:11px;
+    width: 100%;
+    padding:25px;
+    margin-bottom: 30px;
+}
+
+.heigth30{
+    height:30px;
+}
+
+.tituloDashboard{
+    color:#524944;
+    font-size: 25px;
+    text-align:center;
+}
+
+.min-height500 {
+    min-height: 500px;
+}

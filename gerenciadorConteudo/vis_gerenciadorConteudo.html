@@ -1,0 +1,326 @@
+<style>
+    .dropdown-menu {
+        left: initial !important;
+        width: auto;
+    }
+
+    labal {
+        position: inherit !important;
+        color: inherit !important;
+        font-size: inherit !important;
+    }
+
+    .ul_menuDropdownHeader {
+        display: none;
+    }
+
+    input#chk_abreMenuDropdown:checked+ul.ul_menuDropdownHeader {
+        display: block;
+        position: absolute;
+        background-color: #005f85;
+        z-index: 1000;
+        list-style: none;
+        padding: 0;
+        top: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 5px 10px 0px #606060
+    }
+
+    ul.ul_menuDropdownHeader li {
+        color: white;
+        padding: 5px;
+        transition: 0.3s;
+    }
+
+    ul.ul_menuDropdownHeader li:hover {
+        background-color: white;
+        color: initial;
+    }
+
+    ul.ul_menuDropdownHeader a {
+        text-decoration: none;
+        color: initial;
+    }
+
+    .span_opcoesMenu {
+        font-size: 14px;
+        color: initial;
+    }
+</style>
+
+<!DOCTYPE html>
+<header>
+    <div class="row no-gutters m-0" style="background-color: #005f85;">
+        <div class="menu_topo col-md-10 offset-md-1 col-12">
+            <nav class="navbar navbar-expand-lg d-flex justify-content-end" id="navbar_logo">
+                <a href="../index.html" class="navbar-brand navbar-nav mr-auto">
+                    <img src="../imagens/pngs/logo.png" id="img_logoHeader" style="height: 35px; width: auto;"
+                        alt="logo_petShop" />
+                </a>
+                <div class="mt-2 mt-sm-0 mr-2" style="margin-right:45px;">
+                    <span style="color:white;">Olá</span> <span style="color: white; font-weight: 700;"></span>
+                    &nbsp;
+                    <label for="chk_abreMenuDropdown" class="m-0">
+                        <img src="../arquivos/fotoUsuario.png"
+                            style="height: 45px; width: 45px; border-radius: 100%; object-fit: cover; cursor: pointer;"
+                            alt="fotoUsuario" />
+                    </label>
+                    <input type="checkbox" name="chk_abreMenuDropdown" id="chk_abreMenuDropdown" style="display:none;"
+                        value="" />
+
+                    <ul class="ul_menuDropdownHeader">
+                        <li onclick="javascript: window.location.href = 'gerenciadorConteudo/vis_gerenciadorConteudo.html'"
+                            style="cursor:pointer;">
+                            <span class="span_opcoesMenu">Gerenciador de Conteúdo</span>
+                        </li>
+
+                        <li onclick="javascript: window.location.href = '../perfil/vis_usuarioPerfil.html'"
+                            style="cursor:pointer;">
+                            <span class="span_opcoesMenu">Perfil</span>
+                        </li>
+
+                        <li onclick="javascript: window.location.href = 'login.html?param=logoff'"
+                            style="cursor:pointer;">
+                            <span class="span_opcoesMenu">Sair</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<html lang="PT-BR">
+
+<head>
+    <title>PetShop</title>
+    <!-- bootstrap para gerenciador de conte�do -->
+    <link rel="stylesheet" href="../include/bootstrap/css/bootstrap.css" type="text/css" />
+
+    <!--CSS-->
+    <link href="../include/css/styles.css" rel="stylesheet">
+
+    <!--Jquery-->
+    <script src="../include/sbadmin/vendor/jquery/jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="../include/css/jquery-ui.css" />
+    <link rel="stylesheet" href="../include/jquery-confirm-v3.3.4/css/jquery-confirm.css" />
+
+    <!--==============================================================================-->
+    <!--Alerts personalizados-->
+    <script src="../include/jquery-confirm-v3.3.4/js/jquery-confirm.js" type="text/javascript"></script>
+
+    <!--Bootstrap MultiSelect -->
+    <script src="../include/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+
+    <!--ClipBoard (ctr c) -->
+    <script src="../include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
+
+    <!--fun�oes -->
+    <script src="../include/js/java_functions.js"></script>
+
+    <!--ICONS-->
+    <link href="../include/fontawesome/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="row no-gutters m-0">
+        <div class="col-3 mb-2 mt-3 text-center">
+            <a href="#" style="color:#858796; text-decoration:none;"
+                onclick="javascript: window.location.href = '../index.html'">
+                <i class="fas fa-home"></i>
+                <div>Home</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row" style="margin-right:0px;">
+        <div class="col-xs-12 col-md-12 noPadding" style="margin-top: 4px;">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-md-8-offset-2 noPadding"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="container-formulario">
+
+                        <form action="/" method="post" name="frm_petshop" autocomplete="off">
+                            <div class="row">
+                                <div class="col-md-12 noPadding">
+                                    <div class="row">
+                                        <div class="col-md-8-offset-2 col-md-8-offset-2 text-center espacamentoPadrao noPadding"
+                                            style="font-size:25px; color:#524944; margin-top:25px;">
+                                            <span>Gerenciador de conteudo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <div class="form-inline cursor-pointer" title="Novo"
+                                                onclick="javascript: window.open('cad_produto.html','_self')">
+                                                <i class="fa fa-plus-circle fa-2x"></i> &nbsp; Novo
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="sub-titulo-form">Filtros</label>
+                                </div>
+                            </div>
+
+                            <hr class="hr-form" />
+
+                            <div class="row">
+                                <div class="col-12 px-5">
+                                    <div class="row">
+                                        <div class="col-6 col-sm-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="txt_nome">Nome</label>
+                                                <input type="text" class="form-control" name="txt_nome" id="txt_nome" />
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-sm-4 col-lg-4 col-xl-4">
+                                            <div class="form-group">
+                                                <label for="txt_marca">Marca</label>
+                                                <input type="text" class="form-control" name="txt_marca"
+                                                    id="txt_marca" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-2 col-sm-2 col-lg-2 col-xl-2">
+                                            <div class="form-group">
+                                                <input type="button" class="btn_buscar" name="btn_buscar"
+                                                    id="btn_buscar" value="Buscar" style="margin-top:25px;"
+                                                    onclick="fcn_buscar()" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 mt-5">
+                                    <label class="sub-titulo-form">Resultados</label>
+                                </div>
+                            </div>
+
+                            <hr class="hr-form" />
+
+                            <div class="row">
+                                <div class="col-12 px-5">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-inline form-group">
+                                                <select class="form-control" name="cmb_qtdRegistro"
+                                                    id="cmb_qtdRegistro">
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select>
+                                                &nbsp;resultados por página
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="table-responsive-x1">
+                                                <table class="table table-striped border-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="display:none">#</th>
+                                                            <th>Nome</th>
+                                                            <th>Marca</th>
+                                                            <th>Quantidade</th>
+                                                            <th>Preço</th>
+                                                            <th>Editar</th>
+                                                            <th>Remover</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="data-output">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<footer>
+        <div id="div_footer">
+            <div class="row" style="background-color: #002f85;height: 110px; margin: 0; position: absolute; bottom: 0; width: 100%;">
+                <div class="col-8 offset-2" style="background-color:#002f85;">
+                    <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
+                        <img src="../imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>-->
+
+</html>
+
+
+<script type="text/javascript">
+
+
+    function fnc_deletaProduto(id, nome) {
+
+        fetch('https://localhost:44387/api/Produto/' + id, {
+            method: 'DELETE',
+        }).then(res => res.text()) 
+          .then(function (res) {
+                if (res == 'true') {
+                    fcn_alert("Sucesso","Produto Removido!")
+                }
+                else {
+                    fcn_alert("Erro", "Erro ao remover Produto "+ nome)
+                }
+                fcn_buscar()            
+    })
+}
+
+        
+
+    function fcn_buscar() {       
+        fetch("https://localhost:44387/api/Produto").then(function (response) {
+            return response.json();
+        })
+            .then(function (products) {
+                let placeholder = document.querySelector("#data-output");
+                let out = "";
+                for (let product of products) {
+                    out +=
+                        `
+                        <tr>
+                            <td style="display:none">${product.Id}</td>
+                            <td>${product.Nome}</td>
+                            <td>${product.Marca}</td>
+                            <td>${product.Quantidade}</td>
+                            <td>${product.Preco}</td>
+                            <td><i class="fa-sharp fa-solid fa-pen" style="cursor:pointer"  onclick="javascript: window.open('alt_produto.html?id_produto=${product.Id}','_self')"></i></td>
+                            <td><i class="fa-solid fa-trash" style="cursor:pointer"  onclick="javascript: fnc_deletaProduto(${product.Id},'+${product.Nome}+')"></i></td>
+                        </tr>
+                        `;
+                }
+                placeholder.innerHTML = out;
+            })
+    }
+
+</script>
