@@ -1,0 +1,210 @@
+<style>
+    .dropdown-menu {
+        left: initial !important;
+        width: auto;
+    }
+
+    labal {
+        position: inherit !important;
+        color: inherit !important;
+        font-size: inherit !important;
+    }
+
+    .ul_menuDropdownHeader {
+        display: none;
+    }
+
+    input#chk_abreMenuDropdown:checked + ul.ul_menuDropdownHeader {
+        display: block;
+        position: absolute;
+        background-color: #005f85;
+        z-index: 1000;
+        list-style: none;
+        padding: 0;
+        top: 100%;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 5px 10px 0px #606060
+    }
+
+    ul.ul_menuDropdownHeader li {
+        color: white;
+        padding: 5px;
+        transition: 0.3s;
+    }
+
+    ul.ul_menuDropdownHeader li:hover {
+        background-color: white;
+        color: initial;
+    }
+
+    ul.ul_menuDropdownHeader a {
+        text-decoration: none;
+        color: initial;
+    }
+
+    .span_opcoesMenu {
+        font-size: 14px;
+        color: initial;
+    }
+</style>
+
+<!DOCTYPE html>
+<header>
+    <div class="row no-gutters m-0" style="background-color: #005f85;">
+        <div class="menu_topo col-md-10 offset-md-1 col-12">
+            <nav class="navbar navbar-expand-lg d-flex align-items-center justify-content-center" id="navbar_logo">
+                <a href="login.html" class="navbar-brand navbar-nav mr-auto">
+                    <img src="imagens/pngs/logo.png" id="img_logoHeader" style="height: 35px; width: auto;" alt="logo_petShop" />
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
+<html lang="PT-BR">
+    <head>
+        <title>PetShop</title>
+        <!-- bootstrap para gerenciador de conte�do -->
+        <link rel="stylesheet" href="include/bootstrap/css/bootstrap.css" type="text/css" />
+
+        <link href="include/css/styles.css" rel="stylesheet">
+
+        <!--Jquery-->
+        <script src="include/sbadmin/vendor/jquery/jquery-3.6.4.js"></script>
+        <link rel="stylesheet" href="include/css/jquery-ui.css" />
+        <link rel="stylesheet" href="include/jquery-confirm-v3.3.4/css/jquery-confirm.css" />
+
+        <!--==============================================================================-->
+        <!--Alerts personalizados-->
+        <script src="include/jquery-confirm-v3.3.4/js/jquery-confirm.js" type="text/javascript"></script>
+
+        <!--Bootstrap MultiSelect -->
+        <script src="include/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
+
+        <!--ClipBoard (ctr c) -->
+        <script src="include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
+
+        <!--fun�oes -->
+        <script src="include/js/java_functions.js"></script>
+    </head>
+    <body>
+        <div class="div_fundoLogin">
+            <div class="row w-100 no-gutters d-flex align-items-center">
+                <div class="col-12 col-sm-7 col-md-5 col-lg-4 bg-white" style="padding: 30px; box-shadow: 0px 2px 7px 3px gray; margin-left: 500px; margin-bottom:150px;">
+                    <form action="/" method="post" name="frm_petshop" autocomplete="off">
+                        <div class="row">
+                            <div class="col-12 text-center mb-3">
+                                <input type="text" class="form-control memorize" name="txt_login" id="txt_login" autocomplete="off" placeholder="E-mail" value="">
+                            </div>
+
+                            <div class="col-12 text-center mb-3">
+                                <input type="password" class="form-control memorize" name="txt_senha" id="txt_senha" autocomplete="off" placeholder="Senha" value="" />
+                            </div>
+
+                            <div class="col-12 text-center mb-3">
+                                <input type="button" class="btn btn_entrar" name="btn_entrar" id="btn_entrar" value="Entrar" onclick="fcn_entrar();" />
+                                <input type="button" class="btn btn_entrar" name="btn_cadastrar" id="btn_cadastrar" value="Cadastrar" onclick="javascript: window.open('perfil/cad_usuario.html','_self')" />
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-12 d-flex align-items-center">
+                                    <input type="checkbox" class="cursor_poniter" name="chk_lembrarLogin" id="chk_lembrarLogin" value="" />
+                                    <label for="chk_lembrarLogin" class="mb-0 ml-2 cursor_poniter" style="color:#d90626;">Lembrar meu login</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<script type="text/javascript">
+
+    document.frm_petshop.txt_login.focus()
+
+
+    function fcn_loginFacebook (){
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '{your-app-id}',
+            cookie     : true,
+            xfbml      : true,
+            version    : '{api-version}'
+            });
+            
+            FB.AppEvents.logPageView();   
+        }
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    }
+
+
+    function fcn_entrar() {
+        if ($('#txt_login').val() == "") {
+            $('#txt_login').focus()
+            fcn_alert("Atenção", "Preencha o campo de Login.")
+            return false
+        }
+
+        if ($('#txt_senha').val() == "") {
+            $('#txt_senha').focus()
+            fcn_alert("Atenção", "Preencha o campo Senha.")
+            return false
+        }
+
+        let txt_login = document.getElementById("txt_login").value
+        let txt_senha = document.getElementById("txt_senha").value
+
+        body = {
+            "email": txt_login,
+            "senha": txt_senha
+        }
+
+
+        // fetch("https://localhost:44387/api/Login/"+body).then(function (response) {
+        //     return response.json();
+        // })
+        //     .then(function (Login) {
+        //         if (Login > 0 ){
+        //             window.location.href = 'vis_usuarioPerfil.html'
+        //             return false
+        //         }else{
+        //             fcn_alert("Atenção!", "E-mail e/ou senha incorreto(s)")
+        //             return false
+        //         }
+                
+        //     })
+                         
+        
+    console.log(body)
+    let request = new XMLHttpRequest()
+    request.open("POST", "https://localhost:44387/api/Login", true)
+    request.setRequestHeader("Content-type", "application/json")
+    request.send(JSON.stringify(body))
+
+    request.onload = function () {
+        console.log(this.responseText)
+        if (this.responseText > 0 ){
+            localStorage.setItem("idUsuario", this.responseText);
+            window.location.href = 'index.html'
+        }else{
+            fcn_alert("Atenção!", "E-mail e/ou senha incorreto(s)")
+        
+        }
+    }
+
+
+}
+</script>

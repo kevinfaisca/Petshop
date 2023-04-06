@@ -34,10 +34,10 @@
         transition: 0.3s;
     }
 
-    ul.ul_menuDropdownHeader li:hover {
-        background-color: white;
-        color: initial;
-    }
+        ul.ul_menuDropdownHeader li:hover {
+            background-color: white;
+            color: initial;
+        }
 
     ul.ul_menuDropdownHeader a {
         text-decoration: none;
@@ -47,6 +47,13 @@
     .span_opcoesMenu {
         font-size: 14px;
         color: initial;
+    }
+
+    #status {
+        border: solid 1px #ccc;
+        font-family: 'Courier New';
+        font-size: 12px;
+        padding: 8px;
     }
 </style>
 
@@ -63,93 +70,94 @@
     </div>
 </header>
 <html lang="PT-BR">
-    <head>
-        <title>PetShop</title>
-        <!-- bootstrap para gerenciador de conte�do -->
-        <link rel="stylesheet" href="include/bootstrap/css/bootstrap.css" type="text/css" />
+<head>
+    <title>PetShop</title>
+    <!-- bootstrap para gerenciador de conte�do -->
+    <link rel="stylesheet" href="include/bootstrap/css/bootstrap.css" type="text/css" />
 
-        <link href="include/css/styles.css" rel="stylesheet">
+    <link href="include/css/styles.css" rel="stylesheet">
+    <meta charset="utf-8" />
 
-        <!--Jquery-->
-        <script src="include/sbadmin/vendor/jquery/jquery-3.6.4.js"></script>
-        <link rel="stylesheet" href="include/css/jquery-ui.css" />
-        <link rel="stylesheet" href="include/jquery-confirm-v3.3.4/css/jquery-confirm.css" />
+    <!--Jquery-->
+    <script src="include/sbadmin/vendor/jquery/jquery-3.6.4.js"></script>
+    <link rel="stylesheet" href="include/css/jquery-ui.css" />
+    <link rel="stylesheet" href="include/jquery-confirm-v3.3.4/css/jquery-confirm.css" />
 
-        <!--==============================================================================-->
-        <!--Alerts personalizados-->
-        <script src="include/jquery-confirm-v3.3.4/js/jquery-confirm.js" type="text/javascript"></script>
+    <!--==============================================================================-->
+    <!--Alerts personalizados-->
+    <script src="include/jquery-confirm-v3.3.4/js/jquery-confirm.js" type="text/javascript"></script>
 
-        <!--Bootstrap MultiSelect -->
-        <script src="include/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
+    <!--Bootstrap MultiSelect -->
+    <script src="include/bootstrap-multiselect-master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
 
-        <!--ClipBoard (ctr c) -->
-        <script src="include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
+    <!--ClipBoard (ctr c) -->
+    <script src="include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
 
-        <!--fun�oes -->
-        <script src="include/js/java_functions.js"></script>
-    </head>
-    <body>
-        <div class="div_fundoLogin">
-            <div class="row w-100 no-gutters d-flex align-items-center">
-                <div class="col-12 col-sm-7 col-md-5 col-lg-4 bg-white" style="padding: 30px; box-shadow: 0px 2px 7px 3px gray; margin-left: 500px; margin-bottom:150px;">
-                    <form action="/" method="post" name="frm_petshop" autocomplete="off">
-                        <div class="row">
-                            <div class="col-12 text-center mb-3">
-                                <input type="text" class="form-control memorize" name="txt_login" id="txt_login" autocomplete="off" placeholder="E-mail" value="">
-                            </div>
+    <!--fun�oes -->
+    <script src="include/js/java_functions.js"></script>
 
-                            <div class="col-12 text-center mb-3">
-                                <input type="password" class="form-control memorize" name="txt_senha" id="txt_senha" autocomplete="off" placeholder="Senha" value="" />
-                            </div>
+    <!-- facebook-->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v16.0&appId=1656573848148840&autoLogAppEvents=1" nonce="CHMVwLj0"></script>
 
-                            <div class="col-12 text-center mb-3">
-                                <input type="button" class="btn btn_entrar" name="btn_entrar" id="btn_entrar" value="Entrar" onclick="fcn_entrar();" />
-                                <input type="button" class="btn btn_entrar" name="btn_cadastrar" id="btn_cadastrar" value="Cadastrar" onclick="javascript: window.open('perfil/cad_usuario.html','_self')" />
-                            </div>
+</head>
+<body>
+    <div class="div_fundoLogin">
+        <div class="row w-100 no-gutters d-flex align-items-center">
+            <div class="col-12 col-sm-7 col-md-5 col-lg-4 bg-white" style="padding: 30px; box-shadow: 0px 2px 7px 3px gray; margin-left: 500px; margin-bottom:150px;">
+                <form action="/" method="post" name="frm_petshop" autocomplete="off">
+                    <div class="row">
+                        <div class="col-12 text-center mb-3">
+                            <input type="text" class="form-control memorize" name="txt_login" id="txt_login" autocomplete="off" placeholder="E-mail" value="">
+                        </div>
 
-                            <div class="row mb-4">
-                                <div class="col-12 d-flex align-items-center">
-                                    <input type="checkbox" class="cursor_poniter" name="chk_lembrarLogin" id="chk_lembrarLogin" value="" />
-                                    <label for="chk_lembrarLogin" class="mb-0 ml-2 cursor_poniter" style="color:#d90626;">Lembrar meu login</label>
-                                </div>
+                        <div class="col-12 text-center mb-3">
+                            <input type="password" class="form-control memorize" name="txt_senha" id="txt_senha" autocomplete="off" placeholder="Senha" value="" />
+                        </div>
+
+                        <div class="col-12 text-center mb-3">
+                            <input type="button" class="btn btn_entrar" name="btn_entrar" id="btn_entrar" value="Entrar" onclick="fcn_entrar();" />
+                            <input type="button" class="btn btn_entrar" name="btn_cadastrar" id="btn_cadastrar" value="Cadastrar" onclick="javascript: window.open('perfil/cad_usuario.html','_self')" />
+                        </div>
+                        <div class="col-12 text-center">
+
+                            <!--<fb:login-button
+                                             scope="public_profile,email"
+                                             onlogin="checkLoginState();">
+                            </fb:login-button>-->
+                            <div class="fb-login-button" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false" id="btn_facebook"></div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-12 d-flex align-items-center">
+                                <input type="checkbox" class="cursor_poniter" name="chk_lembrarLogin" id="chk_lembrarLogin" value="" />
+                                <label for="chk_lembrarLogin" class="mb-0 ml-2 cursor_poniter" style="color:#d90626;">Lembrar meu login</label>
+                                <!--<div class="fb-like"
+                                     data-share="true"
+                                     data-width="450"
+                                     data-show-faces="true">
+                                </div>-->
                             </div>
                         </div>
-                    </form>
-                </div>
+
+                        <!--<div class="row mt-5">
+                            <div class="col-12">
+                                <h3 style="margin-top: 10px;">Status:</h3>
+                                <div id="status"></div>
+                            </div>
+                        </div>-->
+
+                    </div>
+                </form>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>
 
 
 <script type="text/javascript">
 
     document.frm_petshop.txt_login.focus()
-
-
-    function fcn_loginFacebook (){
-        window.fbAsyncInit = function() {
-            FB.init({
-            appId      : '{your-app-id}',
-            cookie     : true,
-            xfbml      : true,
-            version    : '{api-version}'
-            });
-            
-            FB.AppEvents.logPageView();   
-        }
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    }
-
 
     function fcn_entrar() {
         if ($('#txt_login').val() == "") {
@@ -172,39 +180,64 @@
             "senha": txt_senha
         }
 
+        console.log(body)
+        let request = new XMLHttpRequest()
+        request.open("POST", "https://localhost:44387/api/Login", true)
+        request.setRequestHeader("Content-type", "application/json")
+        request.send(JSON.stringify(body))
 
-        // fetch("https://localhost:44387/api/Login/"+body).then(function (response) {
-        //     return response.json();
-        // })
-        //     .then(function (Login) {
-        //         if (Login > 0 ){
-        //             window.location.href = 'vis_usuarioPerfil.html'
-        //             return false
-        //         }else{
-        //             fcn_alert("Atenção!", "E-mail e/ou senha incorreto(s)")
-        //             return false
-        //         }
-                
-        //     })
-                         
-        
-    console.log(body)
-    let request = new XMLHttpRequest()
-    request.open("POST", "https://localhost:44387/api/Login", true)
-    request.setRequestHeader("Content-type", "application/json")
-    request.send(JSON.stringify(body))
+        request.onload = function () {
+            console.log(this.responseText)
+            if (this.responseText > 0) {
+                localStorage.setItem("idUsuario", this.responseText);
+                window.location.href = 'index.html'
+            } else {
+                fcn_alert("Atenção!", "E-mail e/ou senha incorreto(s)")
 
-    request.onload = function () {
-        console.log(this.responseText)
-        if (this.responseText > 0 ){
-            localStorage.setItem("idUsuario", this.responseText);
-            window.location.href = 'index.html'
-        }else{
-            fcn_alert("Atenção!", "E-mail e/ou senha incorreto(s)")
-        
+            }
         }
     }
 
+    /*FACEBOOK*/
+    function statusChangeCallback(response) {
+        console.log('rodando statusChangeCallBack');
+        console.log(response);
 
-}
+        if (response.status === 'connected') {
+            //logar aplicativo com o facebook
+            /*document.getElementById('status').innerHTML = 'connected';*/
+            window.location.href = 'index.html'
+
+        }
+        else {
+            //não está logado
+            /*document.getElementById('status').innerHTML = 'por favor logar com o app';*/
+        }
+
+    }
+
+    /* Configure o SDK do Facebook para JavaScript*/
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1656573848148840',
+            cookie: true,
+            xfbml: true,
+            version: 'v16.0'
+        });
+        /*Verifica status do login */
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+    /*carregar Javascript SDK*/
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
 </script>

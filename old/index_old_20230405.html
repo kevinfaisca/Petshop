@@ -14,7 +14,7 @@
         display: none;
     }
 
-    input#chk_abreMenuDropdown:checked + ul.ul_menuDropdownHeader {
+    input#chk_abreMenuDropdown:checked+ul.ul_menuDropdownHeader {
         display: block;
         position: absolute;
         background-color: #005f85;
@@ -34,10 +34,10 @@
         transition: 0.3s;
     }
 
-        ul.ul_menuDropdownHeader li:hover {
-            background-color: white;
-            color: initial;
-        }
+    ul.ul_menuDropdownHeader li:hover {
+        background-color: white;
+        color: initial;
+    }
 
     ul.ul_menuDropdownHeader a {
         text-decoration: none;
@@ -58,18 +58,18 @@
             <nav class="navbar navbar-expand-lg d-flex justify-content-end" id="navbar_logo">
                 <a href="index.html" class="navbar-brand navbar-nav mr-auto">
                     <img src="imagens/pngs/logo.png" id="img_logoHeader" style="height: 35px; width: auto;"
-                         alt="logo_petShop" />
+                        alt="logo_petShop" />
                 </a>
                 <div class="mt-2 mt-sm-0 mr-2" style="margin-right:45px;">
                     <span style="color:white;">Olá</span> <span style="color: white; font-weight: 700;"></span>
                     &nbsp;
                     <label for="chk_abreMenuDropdown" class="m-0">
                         <img src="arquivos/fotoUsuario.png"
-                             style="height: 45px; width: 45px; border-radius: 100%; object-fit: cover; cursor: pointer;"
-                             alt="fotoUsuario" />
+                            style="height: 45px; width: 45px; border-radius: 100%; object-fit: cover; cursor: pointer;"
+                            alt="fotoUsuario" />
                     </label>
                     <input type="checkbox" name="chk_abreMenuDropdown" id="chk_abreMenuDropdown" style="display:none;"
-                           value="" />
+                        value="" />
 
                     <ul class="ul_menuDropdownHeader">
                         <li onclick="javascript: window.location.href = 'gerenciadorConteudo/vis_gerenciadorConteudo.html'"
@@ -82,7 +82,7 @@
                             <span class="span_opcoesMenu">Perfil</span>
                         </li>
 
-                        <li onclick="fcn_logoutFromFacebook()"
+                        <li onclick="javascript: window.location.href = 'login.html?param=logoff'"
                             style="cursor:pointer;">
                             <span class="span_opcoesMenu">Sair</span>
                         </li>
@@ -121,6 +121,7 @@
 
 <body>
     <form action="/" method="post" name="frm_petshop" autocomplete="off">
+
     </form>
 </body>
 
@@ -128,7 +129,7 @@
 <footer>
     <div id="div_footer" style="margin-top: 130px;">
         <div class="row"
-             style="background-color: #005f85;height: 110px; margin: 0; position: absolute; bottom: 0; width: 100%;">
+            style="background-color: #005f85;height: 110px; margin: 0; position: absolute; bottom: 0; width: 100%;">
             <div class="col-8 offset-2" style="background-color:#005f85;">
                 <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
                     <img src="imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
@@ -138,55 +139,5 @@
     </div>
 </footer>
 <script type="text/javascript">
-
-
-    function fcn_logoutFromFacebook() {
-        FB.getLoginStatus(function (response) {
-            console.log('rodando statusChangeCallBack');
-            console.log(response);
-            if (response.status === 'connected') {
-                FB.logout(function (response) {
-                    console.log('rodando fblogout');
-                    console.log(response);
-                    if (response.status === 'unknown') {
-                        window.location.href = 'https://www.facebook.com/logout.php?next=' + encodeURIComponent('https://teste.newiweb.info/projetos/kevin_treinamento/petshop/login.html') + '&access_token=' + response.authResponse.accessToken;
-                    } else {
-                        console.log('Erro ao fazer logout do Facebook' + response.error);
-                    }
-                });
-            } else {
-                window.location.href = 'login.html'
-            }
-        });
-    }
-
-    function statusChangeCallback(response) {
-        console.log('rodando statusChangeCallBack');
-        console.log(response);
-    }
-
-    /* Configure o SDK do Facebook para JavaScript*/
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '1656573848148840',
-            cookie: true,
-            xfbml: true,
-            version: 'v16.0'
-        });
-        /*Verifica status do login */
-        FB.getLoginStatus(function (response) {
-            statusChangeCallback(response);
-        });
-
-    };
-
-    /*carregar Javascript SDK*/
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) { return; }
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
 
 </script>
