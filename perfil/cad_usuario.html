@@ -108,8 +108,11 @@
     <!--ClipBoard (ctr c) -->
     <script src="../include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
 
-    <!--fun�oes -->
+    <!--funçoes -->
     <script src="../include/js/java_functions.js"></script>
+
+    <!--Email-->
+    <script src="../include/js/smtp.js"></script>
 </head>
 <body>
     <div class="row" style="margin-right:0px;">
@@ -221,7 +224,34 @@
             "email": txt_email,
         }
         fazPost(url, body)
+
         
+
+        /*Enviar email usando servidor gratuito do google SMTP sem dominio*/
+        Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "kevin.faisca@aluno.faculdadeimpacta.com.br",
+            Password : "1912C1334A9A1E411FF2CFFD24F997AF0F80",
+            To : txt_email,
+            From : "kevin.faisca@aluno.faculdadeimpacta.com.br",
+            Subject : "Conta criada com sucesso",
+            Body : "Olá " + txt_nome + " sua conta em nossa petshop foi criada com sucesso!"
+        }).then(
+        message => alert(message)
+        );
+
+        /*Enviar email usando servidor gratuito do google SMTP com dominio*/
+        /*
+        Email.send({
+            SecureToken : "C973D7AD-F097-4B95-91F4-40ABC5567812",
+            To : 'them@website.com',
+            From : "you@isp.com",
+            Subject : "This is the subject",
+            Body : "And this is the body"
+        }).then(
+        message => alert(message)
+        );
+        */
         document.getElementById("txt_nome").value = "";
         document.getElementById("txt_cpf").value = "";
         document.getElementById("txt_email").value = "";
