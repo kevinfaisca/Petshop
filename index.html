@@ -93,12 +93,13 @@
     </div>
 </header>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge"> 
     <title>PetShop</title>
     <!-- bootstrap para gerenciador de conte�do -->
     <link rel="stylesheet" href="include/bootstrap/css/bootstrap.css" type="text/css" />
 
-    <link href="include/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="include/css/styles.css" type="text/css">
 
     <!--Jquery-->
     <script src="include/sbadmin/vendor/jquery/jquery-3.6.4.js"></script>
@@ -115,28 +116,61 @@
     <!--ClipBoard (ctr c) -->
     <script src="include/js/clipboard/clipboard.min.js" type="text/javascript"></script>
 
-    <!--fun�oes -->
+    <!--funçoes -->
     <script src="include/js/java_functions.js"></script>
+
+    <!--BING-->
+    <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>
 </head>
 
 <body>
-    <form action="/" method="post" name="frm_petshop" autocomplete="off">
-    </form>
-</body>
-
-</html>
-<footer>
-    <div id="div_footer" style="margin-top: 130px;">
-        <div class="row"
-             style="background-color: #005f85;height: 110px; margin: 0; position: absolute; bottom: 0; width: 100%;">
-            <div class="col-8 offset-2" style="background-color:#005f85;">
-                <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
-                    <img src="imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
+    <div class="row" style="margin-right:0px;">
+        <div class="col-xs-12 col-md-12 noPadding" style="margin-top: 4px;">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-md-8-offset-2 noPadding"></div>
+            </div>
+            <form action="/" method="post" name="frm_petshop" autocomplete="off">
+                <div class="row">
+                    <div class="col-md-12 noPadding">
+                        <div class="row">
+                            <div class="col-md-8-offset-2 col-md-8-offset-2 text-center espacamentoPadrao noPadding" style="font-size:25px; color:#524944; margin-top:25px;">
+                                <span>Mapa</span>
+                                <p id="msg" style="color: red; font-size: 16px; display: none;">Cadastrado com sucesso!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="background-color:white; min-height:350px;color:#000;padding:20px;">
+                    <div name="div_mapa" id="div_mapa">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Localizacao petshop
+                            </div>
+                            <div class="panel-body ">
+                                <div class="row form-group">
+                                    <div id="map"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div id="div_footer" style="position: relative;">
+            <div class="row"style="position: absolute; width:100%;">
+                <div style="background-color:#005f85;">
+                    <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
+                        <img src="imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+</body>
+
+</html>
 <script type="text/javascript">
 
 
@@ -189,4 +223,13 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
+
+    /* API MAPA BING*/
+    let map, searchManager;
+
+    function getMap(){
+        map = new Microsoft.Maps.Map('#map', {
+        credentials: 'AnyDko2jEy5BjgjHSpiN5jg-0wtSCcUYXaAtd9aCbEmz9WyCjaDWO3tmXWKwQYBD'
+        });
+    };
 </script>

@@ -99,6 +99,8 @@
     <!-- facebook-->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v16.0&appId=1656573848148840&autoLogAppEvents=1" nonce="CHMVwLj0"></script>
 
+    <!-- reCAPTCHA-->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 <body>
     <div class="div_fundoLogin">
@@ -115,7 +117,7 @@
                         </div>
 
                         <div class="col-12 text-center mb-3">
-                            <input type="button" class="btn btn_entrar" name="btn_entrar" id="btn_entrar" value="Entrar" onclick="fcn_entrar();" />
+                            <input type="button" data-sitekey="6Lew7rklAAAAAD5Xk5eEDuf-Yp_-xRlpyVfvypEJ" data-callback='onSubmit' data-action='submit' class="btn btn_entrar g-recaptcha" name="btn_entrar" id="btn_entrar" value="Entrar" onclick="fcn_entrar();" />
                             <input type="button" class="btn btn_entrar" name="btn_cadastrar" id="btn_cadastrar" value="Cadastrar" onclick="javascript: window.open('perfil/cad_usuario.html','_self')" />
                         </div>
                         <div class="col-12 text-center">
@@ -146,6 +148,14 @@
                             </div>
                         </div>-->
 
+                        <!-- <div class="row">
+                            <div class="col-12 d-flex align-items-center">
+                                <button class="g-recaptcha" 
+                                data-sitekey="6Lew7rklAAAAAD5Xk5eEDuf-Yp_-xRlpyVfvypEJ" 
+                                data-callback='onSubmit' 
+                                data-action='submit'>Submit</button>
+                            </div>
+                        </div> -->
                     </div>
                 </form>
             </div>
@@ -158,6 +168,11 @@
 <script type="text/javascript">
 
     document.frm_petshop.txt_login.focus()
+    
+    // window.onload = function () {
+    //     onload();
+    // }
+
 
     function fcn_entrar() {
         if ($('#txt_login').val() == "") {
@@ -239,5 +254,26 @@
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+
+    /* API reCAPTCHA*/
+    function onSubmit(token) {
+        console.log('sucesso')
+        let = vstr_token = token
+        console.log(vstr_token)
+
+
+        body = {
+            "secret": "6Lew7rklAAAAAFKZnINDdLOGvMxIGTEYyIRIW0_U",
+            "response": vstr_token
+        }
+        console.log(body)
+        let request = new XMLHttpRequest()
+        request.open("POST", "https://www.google.com/recaptcha/api/siteverify", true)
+        request.setRequestHeader("Access-Control-Allow-Origin", "*")
+        request.setRequestHeader("Content-type", "application/json") 
+        request.send(JSON.stringify(body))
+        document.getElementById("frm_petshop").submit();
+   }
 
 </script>
