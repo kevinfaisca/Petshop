@@ -121,6 +121,10 @@
 
     <!--BING-->
     <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>
+
+    <!--GOOGLE MAPS-->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfu9uebvcdNOVYgTLA4xhhRM106ICieQY&callback=initMap"></script>
+
 </head>
 
 <body>
@@ -224,12 +228,31 @@
     }(document, 'script', 'facebook-jssdk'));
 
 
-    /* API MAPA BING*/
-    let map, searchManager;
+    /*API GOOGLE MAPS*/
+    // INICIALIZAR E ADICIONA O MAPA
+    function initMap() {
+    // DEFININDO A LOCALIZAÇÃO
+    const petshop = { lat: -23.578252, lng: -46.642767}; 
+    // O MAPA CENTRALIZADO EM petshop
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 20,
+        center: petshop,
+    });
+    // The marker, positioned at petshop
+    const marker = new google.maps.Marker({
+        position: petshop,
+        map: map,
+    });
+    }
 
-    function getMap(){
-        map = new Microsoft.Maps.Map('#map', {
-        credentials: 'AnyDko2jEy5BjgjHSpiN5jg-0wtSCcUYXaAtd9aCbEmz9WyCjaDWO3tmXWKwQYBD'
-        });
-    };
+    window.initMap = initMap;
+
+
+    // /* API MAPA BING*/
+    // let map, searchManager;
+    // function getMap(){
+    //     map = new Microsoft.Maps.Map('#map', {
+    //     credentials: 'AnyDko2jEy5BjgjHSpiN5jg-0wtSCcUYXaAtd9aCbEmz9WyCjaDWO3tmXWKwQYBD'
+    //     });
+    // };
 </script>
