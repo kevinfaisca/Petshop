@@ -257,24 +257,24 @@
 
 
     /* API reCAPTCHA*/
-//     function onSubmit(token) {
-//         console.log('sucesso')
-//         let = vstr_token = token
-//         console.log(vstr_token)
+    function onSubmit(token) {
+        console.log('sucesso')
+        let = vstr_token = token
+        console.log(vstr_token)
 
 
-//         body = {
-//             "secret": "6Lew7rklAAAAAFKZnINDdLOGvMxIGTEYyIRIW0_U",
-//             "response": vstr_token
-//         }
-//         console.log(body)
-//         let request = new XMLHttpRequest()
-//         request.open("POST", "https://www.google.com/recaptcha/api/siteverify", true)
-//         request.setRequestHeader("Access-Control-Allow-Origin", "*")
-//         request.setRequestHeader("Content-type", "application/json") 
-//         request.send(JSON.stringify(body))
-//         document.getElementById("frm_petshop").submit();
-//    }
+        body = {
+            "secret": "6Lew7rklAAAAAFKZnINDdLOGvMxIGTEYyIRIW0_U",
+            "response": vstr_token
+        }
+        console.log(body)
+        let request = new XMLHttpRequest()
+        request.open("POST", "https://www.google.com/recaptcha/api/siteverify", true)
+        request.setRequestHeader("Access-Control-Allow-Origin", "*")
+        request.setRequestHeader("Content-type", "application/json") 
+        request.send(JSON.stringify(body))
+        document.getElementById("frm_petshop").submit();
+   }
 
        /* API reCAPTCHA*/
 //        function onSubmit(token) {
