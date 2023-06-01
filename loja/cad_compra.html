@@ -68,7 +68,7 @@
                     <input type="checkbox" name="chk_abreMenuDropdown" id="chk_abreMenuDropdown" style="display:none;" value="" />
 
                     <ul class="ul_menuDropdownHeader">
-                        <li onclick="javascript: window.location.href = 'vis_gerenciadorConteudo.html'" style="cursor:pointer;">
+                        <li onclick="javascript: window.location.href = '../gerenciadorConteudo/vis_gerenciadorConteudo.html'" style="cursor:pointer;">
                             <span class="span_opcoesMenu">Gerenciador de Conteúdo</span>
                         </li>
 
@@ -76,7 +76,7 @@
                             <span class="span_opcoesMenu">Perfil</span>
                         </li>
 
-                        <li onclick="javascript: window.location.href = 'login.html?param=logoff'" style="cursor:pointer;">
+                        <li onclick="javascript: window.location.href = '../login.html?param=logoff'" style="cursor:pointer;">
                             <span class="span_opcoesMenu">Sair</span>
                         </li>
                     </ul>
@@ -145,13 +145,14 @@
                             </div>
                             <div class="panel-body">
                                 <div class="row form-group">
-                                    <div class="col-xs-12" style="display:flex; justify-content:left;">
-                                        <img src="../imagens/pngs/racaoCachorro01.png" style="height: 200px; width: 200px; margin-top:20px; margin-bottom: 20px;" alt="Racão Cachorro" />
-                                        <div style="display:flex; justify-content:right; margin-top:70px; margin-left: 70px; position:absolute;">
-                                            <span style="position:relative; top: 0px; left: 160px; font-size: 20px;">Racao Pedigree</span>
-                                            <span style="position: relative; top: 35px; left: 25px; font-size: 20px; color: #005f85">R$ 10,00</span>
-                                            <span style="position:relative; top:66px; left: -51px; font-size:20px;">Produto essencial para o seu pet!</span>
-                                        </div>
+                                    <div class="col-xs-12">
+                                        <div id="div_img"></div>   
+                                        <div>
+                                            <span id="span_marca" style="position:relative; top: -230px; left: 215px; font-size: 40px;"></span>
+                                            <span id="span_nome" style="position: relative; top: -192px; left: 40px; font-size: 20px;"></span>
+                                            <span id="span_moeda" style="position: relative; top: -151px; left: -119px; font-size: 40px; color: #005f85">R$ </span>
+                                            <span id="span_preco" style="position: relative; top: -151px; left: -119px; font-size: 40px; color: #005f85"></span>
+                                       </div>
                                     </div>
                                 </div>
 
@@ -177,22 +178,80 @@
             </form>
         </div>
     </div>
-</body>
-</html>
-<footer>
-    <div id="div_footer">
-        <div class="row" style="background-color: #005f85;height: 110px; margin: 0; position: absolute; bottom: 0; width: 100%;">
-            <div class="col-8 offset-2" style="background-color:#005f85;">
-                <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
-                    <img src="../imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
+    <footer>
+        <div id="div_footer" style="position: relative;">
+            <div class="row" style="position: absolute; width:100%;">
+                <div style="background-color:#005f85;">
+                    <div style="display: flex; height: 110px; justify-content: center; align-items: center;">
+                        <img src="../imagens/pngs/logo.png" alt="logo_petShop" style="height: 50px; width: auto;" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer> 
+</body>=
+</html>
 
 <script type="text/javascript">
 
+window.onload = function () {
+        fcn_exibirDados();
+    }
+
+    var myApp = {} //Objeto para encapsular variáveis e funções
+
+    myApp.preco = ''; // Variável preco dentro do objeto myApp
+
+    function fcn_exibirDados() {
+        fetch("https://localhost:44387/api/Produto/")
+            .then(function(response) {
+            if (!response.ok) {
+                throw new Error("Erro ao obter os dados da API.");
+            }
+            return response.json();
+            })
+            .then(function(produtos) {
+            // Limpa o conteúdo existente dos elementos HTML
+            document.getElementById("span_marca").innerHTML = "";
+            document.getElementById("span_nome").innerHTML = "";
+            document.getElementById("span_preco").innerHTML = "";
+
+            // Percorre a matriz de produtos
+            produtos.forEach(function(produto) {
+                // Cria elementos HTML para exibir os dados do produto
+                var ds_marca = produto.Marca;
+                var marcaElement = document.createElement("span");
+                marcaElement.innerHTML = produto.Marca;
+                document.getElementById("span_marca").appendChild(marcaElement);
+
+                var ds_nome = produto.Nome;
+                var nomeElement = document.createElement("span");
+                nomeElement.innerHTML = produto.Nome;
+                document.getElementById("span_nome").appendChild(nomeElement);
+
+                var ds_preco = produto.Preco;
+                var preco = ds_preco.toString()
+                myApp.preco = ds_preco.toString()
+
+                var precoElement = document.createElement("span");
+                precoElement.innerHTML = produto.Preco;
+                document.getElementById("span_preco").appendChild(precoElement);
+
+                var imagemProduto = produto.Imagem;
+                var imgElement = document.createElement("img");
+                imgElement.src = '../imagens/pngs/' + imagemProduto;
+                imgElement.alt = 'Produto';
+                imgElement.style.height = '200px';
+                imgElement.style.width = '200px';
+                imgElement.style.margintop = '20px';
+                imgElement.style.marginBottom = '20px';
+                document.getElementById("div_img").appendChild(imgElement);
+            });
+            })
+            .catch(function(error) {
+            console.error(error);
+            });
+    }
     paypal.Buttons({
         createOrder: function (data, actions) {
             return actions.order.create({
@@ -241,21 +300,20 @@
             });
         },
 
-
         onApprove: function (data, actions) {
             // Aqui você pode exibir os detalhes do produto para o cliente
             var order = actions.order.capture().then(function (orderData) {
                 console.log('Detalhes do pedido:', orderData);
+                console.log('Pagamento aprovado!');
 
-                // Exemplo de exibição dos detalhes do produto em uma mensagem
-                var productDetails = '';
-                orderData.purchase_units.forEach(function (unit) {
-                    unit.items.forEach(function (item) {
-                        productDetails += item.name + ' - R$ ' + item.unit_amount.value + '<br>';
-                    });
-                });
-
+                //Redirecionar para página de finalização de compra
                 window.location.href = 'vis_finalizaCompra.html'
+            }).catch(function(error) {
+            console.error("Erro ao capturar pedido: ", error);
+            console.log('Pagamento não aprovado!');
+
+            //Lidar com pagamento não aprovado - redirecionar para uma página de erro
+            window.location.href = 'vis_pagamentoNaoAprovado.html'
             });
         }
     }).render('#paypal-button-container')

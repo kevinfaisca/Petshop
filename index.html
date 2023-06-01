@@ -61,7 +61,7 @@
                          alt="logo_petShop" />
                 </a>
                 <div class="mt-2 mt-sm-0 mr-2" style="margin-right:45px;">
-                    <span style="color:white;">Olá</span> <span style="color: white; font-weight: 700;"></span>
+                    <span style="color:white;">Bem-vindo</span> <span style="color: white; font-weight: 700;"></span>
                     &nbsp;
                     <label for="chk_abreMenuDropdown" class="m-0">
                         <img src="arquivos/fotoUsuario.png"
@@ -74,7 +74,7 @@
                     <ul class="ul_menuDropdownHeader">
                         <li onclick="javascript: window.location.href = 'gerenciadorConteudo/vis_gerenciadorConteudo.html'"
                             style="cursor:pointer;">
-                            <span class="span_opcoesMenu">Gerenciador de Conteúdo</span>
+                            <span class="span_opcoesMenu">Gerenciador de Conteudo</span>
                         </li>
 
                         <li onclick="javascript: window.location.href = 'perfil/vis_usuarioPerfil.html'"
@@ -119,6 +119,9 @@
     <!--funçoes -->
     <script src="include/js/java_functions.js"></script>
 
+    <!--ICONS-->
+    <link href="include/fontawesome/css/all.min.css" rel="stylesheet" />
+
     <!--BING-->
     <script src="http://www.bing.com/api/maps/mapcontrol?callback=getMap" async></script>
 
@@ -133,6 +136,23 @@
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-md-8-offset-2 noPadding"></div>
             </div>
+            <div class="row no-gutters m-0">
+                <div class="col-3 mb-2 mt-3 text-center">
+                    <a href="#" style="color:#858796; text-decoration:none;"
+                        onclick="javascript: window.location.href = 'index.html'">
+                        <i class="fas fa-home fa-2x"></i>
+                        <div>Home</div>                       
+                    </a>
+                </div>
+                <div class="col-3 mb-2 mt-3 text-center">
+                    <a href="#" style="color:#858796; text-decoration:none;"
+                        onclick="javascript: window.location.href = 'loja/cad_compra.html'">
+                        <i class="fa-sharp fa-solid fa-cart-shopping fa-2x"></i>
+                        <div>Produtos</div>                       
+                    </a>                    
+                </div>
+
+            </div>            
             <form action="/" method="post" name="frm_petshop" autocomplete="off">
                 <div class="row">
                     <div class="col-md-12 noPadding">
